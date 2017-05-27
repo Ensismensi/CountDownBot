@@ -10,29 +10,3 @@
     "discord.js": "11.1.0"
   },
 }
-}
-
-
-
-{
-  "name": "CountDownBot",
-  "version": "0.0.5",
-  "description": "this is countdownbot",
-  "main": "app.js",
-  "dependencies": {
-      "discord.js": "11.1.0"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
-  },
-  "author": "Poppy",
-  "license": "ISC",
-  "engines": {
-    "node": "0.10.x"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://git.heroku.com/countdownbot1.git"
-  }
