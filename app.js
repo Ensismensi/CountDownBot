@@ -40,6 +40,10 @@ client.on('message', message => {
 
   if (message.content.startsWith(prefix + 'invite')) {
     message.channel.sendMessage("https://discordapp.com/oauth2/authorize?client_id=317783715373645825&scope=bot&permissions=267910345");
+  } else
+
+  if (message.content.startsWith(prefix + 'kill')) {
+    message.channel.sendMessage("NO!, don't do that! No one is worth doing it! Please, contact @Poppy#9454 if you need someone to talk with. <3 ");
   }
 });
 
