@@ -8,7 +8,13 @@ client.on("guildMemberAdd",  (member) => {
 });
 
 
-
+var prefix = "=="
+client.on('message', message => {
+	if (message.author === client.user) return;
+	if (message.content.startsWith(prefix + 'help')) {
+		message.channel.sendMessage(`Hey ${member.user}, I'm developered by Poppy#9454 and, if you want to suggest her something DM her :) !`);
+	}
+});
 
 
 
