@@ -10,16 +10,37 @@ client.on("guildMemberAdd",  (member) => {
 
 var prefix = "=="
 client.on('message', message => {
-	if (message.author === client.user) return;
+	let args = message.content.split(' ').slice(1);
+	var result = args.join(' ');
+
+	if (!message.content.startsWith(prefix)) return;
+	if (message.author.bot) return;
+
+	if (message.content.startsWith(prefix + 'ping')) {
+		message.channel.sendMessage(`Here you go, my ping! \`${Date.now() - message.createdTimestamp} ms\``);
+	} else
+
+	if (message.content.startsWith(prefix + 'setgame')) {
+		if (!result) {
+			result = null;
+		}
+		client.user.setGame(result);
+	} else
+
+	if (message.content.startsWith(prefix + 'setstatus')) {
+		if (!result) {
+			result = 'online';
+		}
+		client.user.setStatus(result);
+	} else
+
 	if (message.content.startsWith(prefix + 'help')) {
-		message.channel.sendMessage(`Hey ${member.user}, I'm developered by Poppy#9454 and, if you want to suggest her something DM her :) !`);
-	}
+		message.channel.sendMessage("Message Poppy#9454 if you want to suggest|bug repport! If you want to invite server say ==invite ");
+	} else
+
+  if (message.content.startsWith(prefix + 'invite')) {
+    message.channel.sendMessage("https://discordapp.com/oauth2/authorize?client_id=317783715373645825&scope=bot&permissions=267910345");
+  }
 });
-
-
-
-
-
-
 
 client.login(settings);
