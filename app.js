@@ -35,7 +35,9 @@ client.on('message', message => {
 	} else
 
 	if (message.content.startsWith(prefix + 'help')) {
-		message.author.createDM().then( ch => ch.send("Message Poppy#9454 if you want to suggest|bug repport! If you want to invite server say ==invite"));
+    let embed = new Discord.RichEmbed();
+embed.setDescription("Message Poppy#9454 if you want to suggest|bug repport! If you want to invite server say ==invite");
+message.author.send({embed});
 	} else
 
   if (message.content.startsWith(prefix + 'invite')) {
