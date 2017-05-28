@@ -36,7 +36,7 @@ client.on('message', message => {
 
 	if (message.content.startsWith(prefix + 'help')) {
     let embed = new Discord.RichEmbed();
-embed.setDescription("Message Poppy#9454 if you want to suggest|bug repport! If you want to invite server say ==invite");
+embed.setDescription("Hello there! Help command is not finished, but soon it will be public. If you want to suggest me something or to report me something about bot please send me message on Poppy#9454 ! **Shes my developer** ;)");
 message.author.send({embed});
 	} else
 
