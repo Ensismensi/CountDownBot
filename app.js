@@ -35,7 +35,7 @@ client.on('message', message => {
 	} else
 
 	if (message.content.startsWith(prefix + 'help')) {
-		message.channel.sendMessage("Message Poppy#9454 if you want to suggest|bug repport! If you want to invite server say ==invite ");
+		message.author.createDM().then( ch => ch.send("Message Poppy#9454 if you want to suggest|bug repport! If you want to invite server say ==invite"));
 	} else
 
   if (message.content.startsWith(prefix + 'invite')) {
@@ -43,7 +43,7 @@ client.on('message', message => {
   } else
 
   if (message.content.startsWith(prefix + 'kill')) {
-    message.channel.sendMessage("NO!, don't do that! No one is worth doing it! Please, contact @Poppy#9454 if you need someone to talk with. <3 ");
+    message.channel.sendMessage("Hey, don't do that. No one is worth your life. Talk with someone, it's gonna be fine. ");
   }
 });
 
