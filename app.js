@@ -2,11 +2,20 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const settings = require('./settings.json').token;
 
-client.on("guildMemberAdd",  (member) => {
-  let guild = member.guild;
-  guild.defaultChannel.sendMessage(`Welcome to ${guild.name}, we hope you ${member.user} have good time with us! Now we have ${guild.memberCount} members.`);
-});
-
+bot.on('guildMemberAdd', member => {
+     incrementMemberCountAdd()
+     member.guild.channels.get("282328130763358210").sendMessage("", {embed : {
+         color: (6863464),
+         fields: [
+         {
+             name: `Welcome!`,
+             value: `Welcome to **Music Union**, ${member} Please read <#316409133077102602> and have fun! You are the ${member.guild.memberCount} member!`,
+         },
+         ],
+         timestamp: new Date()
+     }});
+     console.log(`[System] Welcome message ran successfully`.cyan);
+ });
 
 var prefix = "=="
 client.on('message', message => {
