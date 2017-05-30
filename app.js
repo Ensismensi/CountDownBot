@@ -46,7 +46,14 @@ message.author.send({embed});
 
   if (message.content.startsWith(prefix + 'kill')) {
     message.channel.sendMessage("Hey, don't do that. No one is worth your life. Talk with someone, it's gonna be fine. ");
-  }
+  } else
+
+  if (message.content.startsWith(prefix + 'owner')) {
+     let embed = new Discord.RichEmbed();
+ embed.setDescription("@Poppy#9454");
+ message.author.send({embed});
+ 	} else
+
 });
 
 client.login(settings);
