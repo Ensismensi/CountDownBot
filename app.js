@@ -52,7 +52,7 @@ message.author.send({embed});
      let embed = new Discord.RichEmbed();
  embed.setDescription("@Poppy#9454");
  message.author.send({embed});
- 	} else
+ 	}
 
 });
 
