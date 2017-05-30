@@ -50,8 +50,8 @@ message.author.send({embed});
 
   if (message.content.startsWith(prefix + 'owner')) {
      let embed = new Discord.RichEmbed();
- embed.setDescription("@Poppy#9454");
- message.author.send({embed});
+ embed.setDescription("Here is my owner! Poppy#9454");
+ message.channel.send({embed});
  	}
 
 });
