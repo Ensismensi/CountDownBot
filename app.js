@@ -20,8 +20,7 @@ client.on('message', message => {
 		message.channel.sendMessage(`Here you go, my ping! \`${Date.now() - message.createdTimestamp} ms\``);
 	} else
 
-	if (message.content.startsWith(prefix + 'setgame')) {
-		if (!result) {
+y		if (!result) {
 			result = null;
 		}
 		client.user.setGame(result);
@@ -34,20 +33,13 @@ client.on('message', message => {
 		client.user.setStatus(result);
 	} else
 
-    let embed = new Discord.RichEmbed();
-
-    if (message.content.startsWith(prefix + 'say')) {
-      let embed = new Discord.RichEmbed();
-      embed.setDescription(result);
-      message.author.send({embed});
-    }
 
 embed.setDescription("Hello there! Help command is not finished, but soon it will be public. If you want to suggest me something or to report me something about bot please send me message on Poppy#9454 ! **Shes my developer ;)");
 message.author.send({embed});
 	} else
 
   if (message.content.startsWith(prefix + 'invite')) {
-    message.channel.sendMessage("https://discordapp.com/oauth2/authorize?client_id=317783715373645825&scope=bot&permissions=267910345");
+    message.channel.sendMessage("Oh, here is my invite! I hope you like me! :) https://discordapp.com/oauth2/authorize?client_id=317783715373645825&scope=bot&permissions=267910345");
   } else
 
   if (message.content.startsWith(prefix + 'kill')) {
