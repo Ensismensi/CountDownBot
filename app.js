@@ -65,7 +65,6 @@ if (message.content.startsWith(prefix + 'eval')) {
     message.channel.sendCode("xl", clean(evaled));
   } catch(err) {
     message.channel.sendMessage(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
-  }
 });
 
 
