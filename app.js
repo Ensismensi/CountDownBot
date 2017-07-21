@@ -52,7 +52,7 @@ message.author.send({embed});
   embed.setDescription(result);
   message.channel.send({embed});
 }
-if (message.content.startsWith(config.prefix + "eval")) {
+if (message.content.startsWith(prefix + "eval")) {
    if(message.author.id !== "161860589243727872") return;
    try {
      const code = args.join(" ");
