@@ -53,7 +53,7 @@ message.author.send({embed});
   message.channel.send({embed});
 }
 
-if (userinput.startsWith("eval")) {
+if (message.content.startsWith(prefix + "eval")) {
 		if (msg.author.id != "161860589243727872") return msg.channel.send(msg.author + " That's only for my Poppy.");
 		if (msg.embeds.length > 0) return;
 		let code = msg.content.slice(5);
