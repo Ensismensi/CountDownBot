@@ -53,17 +53,23 @@ message.author.send({embed});
   message.channel.send({embed});
 }
 
-if(message.content.startsWith("eval"))
-{
-    if(message.author.id !== "161860589243727872") return message.channel.send("That's only for my Poppy.");
-    let code = message.content.split(" ").slice(1).join(" ");
-    try {
-        let evaled = eval(code);
-        message.channel.send(evaled, { code:"js" });
-    } catch(err) {
-        message.channel.send(err, { code:"js" });
-    }
+if (message.content.startsWith(prefix + 'eval')) {
+  if (message.author.id !== "161860589243727872") return;
+  try {
+    var code = args.join(" ");
+    var evaled = eval(code);
+
+    if (typeof evaled !== "string")
+    evaled = require("util").inspect(evaled);
+
+    message.channel.sendCode("xl", clean(evaled));
+  } catch(err) {
+    message.channel.sendMessage(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+  }
+
+}
 });
+
 
 function clean(text) {
   if (typeof(text) === "string")
