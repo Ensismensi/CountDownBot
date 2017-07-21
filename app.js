@@ -53,70 +53,21 @@ message.author.send({embed});
   message.channel.send({embed});
 }
 
-if (message.content.startsWith(prefix + "eval")) {
-		if (msg.author.id != "161860589243727872") return msg.channel.send(msg.author + " That's only for my Poppy.");
-		if (msg.embeds.length > 0) return;
-		let code = msg.content.slice(5);
-		let client = bot;
-		let message = msg;
-		let server = msg.channel.server;
-		let channel = msg.channel;
+if (message.content.startsWith(prefix + 'eval')) {
+  if(message.author.id !== "161860589243727872") return;
+  try {
+    var code = args.join(" ");
+    var evaled = eval(code);
 
-		try {
-			const evaluated = eval(code);
-			const embedText = "```xl\n" +
-				"\n- - - - - - evaluates-to- - - - - - -\n" +
-				clean(evaluated) +
-				"\n- - - - - - - - - - - - - - - - - - -```"
+    if (typeof evaled !== "string")
+    evaled = require("util").inspect(evaled);
 
-			if (evaluated && evaluated.catch) evaluated.catch(() => {});
-			msg.channel.send({
-				embed: {
-					description: embedText,
-					color: 0x00FF00
-				}
-			}).then(() => {
-				const lastmsg = bot.user.lastMessage;
+    message.channel.sendCode("xl", clean(evaled));
+  } catch(err) {
+    message.channel.sendMessage(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+  }
 
-				if (evaluated && evaluated.then) {
-					return evaluated.then((result) => {
-						embedText = embedText.substring(0, embedText.length - 4);
-						embedText += "\n- - - - -Promise resolves to- - - - -\n";
-						embedText += clean(result);
-						embedText += "\n- - - - - - - - - - - - - - - - - - -```";
-						lastmsg.edit({
-							embed: {
-								description: embedText,
-								color: 0x00FF00
-							}
-						}).catch(error => console.error(error))
-					}).catch((error) => {
-						embedText = embedText.substring(0, embedText.length - 4);
-						embedText += "\n- - - - - Promise throws- - - - - - -\n";
-						embedText += clean(error);
-						embedText += "\n- - - - - - - - - - - - - - - - - - -```";
-						lastmsg.edit({
-							embed: {
-								description: embedText,
-								color: 0xFF0000
-							}
-						}).catch(error => console.error(error))
-					}).catch(error => console.error(error));
-				}
-			});
-		} catch (error) {
-			msg.channel.send({
-				embed: {
-					description: "```xl\n" +
-						"\n- - - - - - - errors-in- - - - - - - \n" +
-						clean(error) +
-						"\n- - - - - - - - - - - - - - - - - - -```",
-					color: 0xFF0000
-				}
-			});
-		}
-		return;
-	}
+}
 });
 
 
