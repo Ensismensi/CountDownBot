@@ -66,7 +66,6 @@ if (message.content.startsWith(prefix + 'eval')) {
   } catch(err) {
     message.channel.sendMessage(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
   }
-
 });
 
 
