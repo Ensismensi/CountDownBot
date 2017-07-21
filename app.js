@@ -52,29 +52,27 @@ message.author.send({embed});
   embed.setDescription(result);
   message.channel.send({embed});
 }
+if (message.content.startsWith(config.prefix + "eval")) {
+   if(message.author.id !== "161860589243727872") return;
+   try {
+     const code = args.join(" ");
+     let evaled = eval(code);
 
-if (message.content.startsWith(prefix + 'eval')) {
-  if(message.author.id !== "161860589243727872") return;
-  try {
-    var code = args.join(" ");
-    var evaled = eval(code);
+     if (typeof evaled !== "string")
+       evaled = require("util").inspect(evaled);
 
-    if (typeof evaled !== "string")
-    evaled = require("util").inspect(evaled);
+     message.channel.send(clean(evaled), {code:"xl"});
+   } catch (err) {
+     message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+   }
+ }
+});
 
-    message.channel.sendCode("xl", clean(evaled));
-  } catch(err) {
-    message.channel.sendMessage(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
-  }
-
-}); 
-
-
-function clean(text) {
+const clean = text => {
   if (typeof(text) === "string")
-  return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+    return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
   else
-  return text;
+      return text;
 }
 
 client.login(settings);
