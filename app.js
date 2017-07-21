@@ -54,7 +54,7 @@ message.author.send({embed});
 }
 
 if (message.content.startsWith(prefix + 'eval')) {
-  if (message.author.id !== "161860589243727872") return;
+  if(message.author.id !== "161860589243727872") return;
   try {
     var code = args.join(" ");
     var evaled = eval(code);
@@ -65,6 +65,9 @@ if (message.content.startsWith(prefix + 'eval')) {
     message.channel.sendCode("xl", clean(evaled));
   } catch(err) {
     message.channel.sendMessage(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+  }
+
+}
 });
 
 
