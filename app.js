@@ -117,7 +117,6 @@ if (message.content.startsWith(prefix + "eval")) {
 		}
 		return;
 	}
-};
 });
 
 
