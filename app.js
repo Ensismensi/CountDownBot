@@ -1,12 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const settings = require('./settings.json').token;
-//Event triggers when the Bot starts.
-client.on('ready', () => {
-  client.guilds.forEach(function(key){
-    console.log(key.name);
-    key.defaultChannel.send("test");
-  });
 
 });
 client.on("guildMemberAdd",  (member) => {
